@@ -1,17 +1,97 @@
 .parent{
-    padding: 1em;
+    padding: 0;
 }
 
 .parent-flex {
-    padding: 1em 5em;
-    width: 80%;
+    padding: 0 3em;
+    max-width: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;    
 }
 
+.top-carausel{
+    background-color:#171a29;
+    padding:3em 0.5em;
+
+}
+
+.font-awesome{
+    padding-right:5px;
+}
+
+.typo-font{
+    font-size:'25px';
+}
+
+.rest-flex{
+    justify-content: flex-start;
+}
+
+.restText{
+    
+    font-size:50px;
+    color:yellow;
+}
+
+.lpad{
+    padding-left:1px;
+}
+
+.flex-items1{
+    flex:1 0 15%;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.flex-items2{
+    flex:2 0 35%
+}
+
+.flex-items3{
+    flex:3 0 50%;
+    display:flex;
+    justify-content:space-around;
+}
+
+.dish-flex-items1{
+ flex:1 0 40%;
+ 
+}
+
+.dish-flex-items2{
+    flex:2 0 60%;
+    display:flex;
+    justify-content:space-around;
+   }
+ .dish-container{
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-top:50px;
+ }  
 
 .logo{
-    height: 3em;
+    height: 5em;
+}
+
+.google-appstore{
+    height: 10em;
+}
+
+.bottom-footer{
+    background-color:#000;
+    padding:3em 3em;    
+}
+
+.footer-flex {
+    padding: 3em 3em;
+    max-width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;    
 }
