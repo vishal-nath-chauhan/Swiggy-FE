@@ -8,7 +8,8 @@ import Typography from '@mui/material/Typography';
 import food2 from "../../images/food3.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-const DishesItem=()=>{
+const DishesItem=(props)=>{
+  const  {isEmpty}=props
   return (
     <Card sx={{ maxWidth: 265 }} style={{marginBottom:"15px"}}>
       <CardMedia
@@ -19,7 +20,7 @@ const DishesItem=()=>{
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          The Bowl Singh
+         {isEmpty ? "": "The Bowl Singh"}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           North Indian Snacks
