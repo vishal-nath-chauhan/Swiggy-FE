@@ -1,20 +1,43 @@
-import { flexbox } from "@mui/system";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
 import DishesItem from "./DishesItem";
-import { useNavigate } from "react-router-dom";
+import { useFetcher, useNavigate } from "react-router-dom";
+import { getApiHandler } from "../../utils/api/api";
 
 const DishesContainer = () => {
 	const navigate = useNavigate();
+	const [userData, setUserData] = useState(null);
 
-	// const navigateToHome = () => navigate("/home");
-	const logToBrowser =()=>{
+	const [test, setTest] = useState(123);
+
+	const increaseBy1 = () => setTest(test + 1);
+	const decreaseBy1 = () => setTest(test - 1);
+
+	useEffect(() => {
+		console.log("########### TEST $$$$$$$$$$$$$$$$$$$ ", test);
+	}, [test]);
+
+
+	const manageApi = async () => {
+		let response = await getApiHandler({ url: "posts" });
+		setUserData(response);
+		return response;
+	};
+
+	useEffect(() => {
+		manageApi();
+		return () => {
+			console.log("CLOSED ");
+		};
+	}, []);
+
+	const navigateToHome = () => navigate("/home");
+	const logToBrowser = () => {
 		console.warn("browser logging");
-	}
-	const response = [1, 2, 4, 5, 6, 6, 7, 23, 6, 235, 2, 26, 26, 236, 26, 2362, 362, 36, 236, 26, 2, 6, 2];
-// let emptyDivs =new Array(5)
-	// logic 
+	};
+	// let emptyDivs =new Array(5)
+	// logic
 	// return how many empty divs we need
 
 	// export const customMediaQueries = {
@@ -30,16 +53,20 @@ const DishesContainer = () => {
 	// 	if(width<481) return 'mobile';
 	// 	if(width>481 && width<768) return 'tablet';
 
-
 	// }
 
 	const filters = ["Relevence", "Delivery Time", "Rating", "Cost:Low To High", "Cost:High To Low", "Filters"];
+
 	return (
 		<>
 			<Box className="parent" style={{ marginTop: "40px" }}>
 				<Box className="parent-flex rest-flex">
 					<div className="dish-flex-items1">
-						<Typography style={{ fontSize: "25px" }}>793 Restaurants</Typography>
+						<Typography onClick={navigateToHome} style={{ fontSize: "25px" }}>
+							793 Restaurants
+						</Typography>
+						<button onClick={increaseBy1}>increase</button>
+						<button onClick={decreaseBy1}>decrease</button>
 					</div>
 
 					<div className="dish-flex-items2">
@@ -47,17 +74,11 @@ const DishesContainer = () => {
 							// <Typography onClick={logToBrowser()}>{filter}</Typography>
 							<Typography onClick={logToBrowser}>{filter}</Typography> // Best way
 							// <Typography onClick={()=>logToBrowser()}>{filter}</Typography> // Bad Way
-
-
 						))}
-						{emptyDivs.map(item=>
-						
-							)}
 					</div>
-					
 				</Box>
 
-{/* const onClick =(callback)=>{
+				{/* const onClick =(callback)=>{
 
 logic =>
 
@@ -65,11 +86,11 @@ callback()
 
 } */}
 
-				<Box className="parent-flex dish-container">
-					{response.map((item) => (
-						<DishesItem data={item} />
-					))}
-				</Box>
+				{userData ? (
+					<Box className="parent-flex dish-container">{userData && userData.map((item) => <DishesItem item={item} />)}</Box>
+				) : (
+					<Box className="parent-flex dish-container">Loader</Box>
+				)}
 			</Box>
 		</>
 	);

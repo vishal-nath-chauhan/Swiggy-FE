@@ -5,12 +5,10 @@ import Component1 from "./components/Component1";
 
 function App() {
 	return (
-		<div>
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/home" element={<Component1 />} />
-			</Routes>
-		</div>
+		<Routes>
+			<Route path="/" element={<Home />} />
+			<Route path="/home" element={<Component1 />} />
+		</Routes>
 	);
 }
 
