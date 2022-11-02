@@ -2,7 +2,7 @@ import React from "react"
 import { useState } from "react";
 import { useEffect } from "react";
 import { albumApiHandler } from "./testapi/api";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Test=()=>{
 
   const [userData,setUserData]=useState(null)
@@ -16,13 +16,27 @@ const Test=()=>{
     manageTestApi() 
   } 
   ,[])
+  
+
+  const navigate = useNavigate()
+
+  const handleRedirection =() => navigate('/test')
+
+  // localhist:2000/test/orderId=9w3ytw3tw
 
     return(
         <>
         <h2>Albums</h2>
-         {userData?(userData.map((item)=><div><Link to={item.id}>{item.title}</Link></div>)):(<div>Loader...</div>)}
+         {userData?(userData.map((item)=><div><Link onClick={handleRedirection} to={item.id}>{item.title}</Link></div>)):(<div>Loader...</div>)}
         </>
     )
 }
+
+
+// 1. create component => photo 
+// 2. route => /photo?photoId = 2362362
+// 3. photo component => url => parameters => read => useEffect => api => photo get 
+// 4 show that photo
+
 
 export default Test;
