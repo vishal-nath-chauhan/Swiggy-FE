@@ -7,7 +7,9 @@ export const getApiHandler = (data) => {
 	return axios
 		.get(BASE_URL + url)
 		.then((response) => {
+			
 			return response.data;
+			
 		})
 		.catch((error) => {
 			console.warn({ error });

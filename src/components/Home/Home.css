@@ -22,6 +22,53 @@
     padding-right:5px;
 }
 
+.dish-band{
+    background-color:#d4d5d9;
+    width:100%;
+    height:1.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.dish-band1{
+    display:flex;
+    justify-content: space-evenly;
+    flex:1 0 30%
+}
+.dish-band2{
+    flex:1 0 67%
+}
+.dish-band0{
+    flex:1 0 3%
+}
+.dish-band1 span{
+    font-size: 10px;
+    
+}
+.dish-band1 span:not(:last-child){
+    color:#93959f;
+}
+.food-icon::before{
+    content: "";
+    display:inline-block;
+    outline-offset: 5px;
+    outline:1px solid grey;
+    border-radius: 50%;
+    height:8px;
+    width:8px;
+    background-color: red;
+}
+.food-icon1::before{
+    content: "";
+    display:inline-block;
+    outline-offset: 3px;
+    outline:1px solid grey;
+    border-radius: 50%;
+    height:5px;
+    width:5px;
+    background-color: red;
+}
 .typo-font{
     font-size:'25px';
 }
@@ -75,6 +122,9 @@
 
 .logo{
     height: 5em;
+}
+.icon-heartInverse:before {
+    content: "\E92B";
 }
 
 .google-appstore{

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
 import DishesItem from "./DishesItem";
+import { EmptyDivs } from "./EmptyDivs";
 import { useFetcher, useNavigate } from "react-router-dom";
 import { getApiHandler } from "../../utils/api/api";
 
@@ -84,13 +85,27 @@ logic =>
 
 callback()
 
-} */}
-
-				{userData ? (
+} */}           <Box className="parent-flex dish-container">
+	              <DishesItem/>
+				  <DishesItem/>
+				  <DishesItem/>
+				  <DishesItem/>
+				  <DishesItem/>
+				  <DishesItem/>
+				  <DishesItem/>
+				  <DishesItem/>
+				  <DishesItem/>
+				  <DishesItem/>
+				  <EmptyDivs/>
+				  <EmptyDivs/>
+                  </Box>
+                
+				
+				{/*userData ? (
 					<Box className="parent-flex dish-container">{userData && userData.map((item) => <DishesItem item={item} />)}</Box>
 				) : (
 					<Box className="parent-flex dish-container">Loader</Box>
-				)}
+				)*/}
 			</Box>
 		</>
 	);
