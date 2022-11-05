@@ -15,11 +15,10 @@ const DishesItem = (props) => {
 
 	const title = _.get(item, "title", "---");
 
-  const dataConfig ={
-    title:_.get(item, "title", "---"),
-    price:_.get(item, "price", "---"),
-  }
-  
+	const dataConfig = {
+		title: _.get(item, "title", "---"),
+		price: _.get(item, "price", "---"),
+	};
 
 	return (
 		<Card sx={{ maxWidth: 265 }} style={{ marginBottom: "15px" }}>

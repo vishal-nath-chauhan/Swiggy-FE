@@ -1,9 +1,21 @@
+import { get } from "lodash";
 import React from "react";
 
-const ChildComponent = (props) => {
-    
-	const { userName ,parent} = props;
-	return <div>ChildComponent of {userName} : Parent Data :{parent} </div>;
+const isEqual = (prevProps, nextProps) => {
+	// console.log({ prevProps, nextProps });
+	if (prevProps.cart.total.subtotal.final === nextProps.cart.total.subtotal.final) return true;
+	return false;
+
+	// false => re-rendering
+	// true => no re-rendering
 };
 
-export default ChildComponent;
+const ChildComponent = (props) => {
+	const { cart } = props;
+	console.log("CHILD RE RENDERED", cart);
+	const value = get(cart, "total.subtotal.final", 0);
+	return <div>Cart: {value}</div>;
+};
+
+export default React.memo(ChildComponent, isEqual);
+// export default ChildComponent;
