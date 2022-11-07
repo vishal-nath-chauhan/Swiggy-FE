@@ -1,6 +1,6 @@
 import ChildComponent2 from "./ChildComponent2";
 import { useEffect, useMemo, useState } from "react";
-import { Input } from "@mui/material";
+import { Input, useForkRef } from "@mui/material";
 
 const Component2 = () => {
 	// logic
@@ -31,8 +31,8 @@ const Component2 = () => {
 		return total;
 	};
 
-	const total = useMemo(() => calculate(), [age]);
-
+	//const total = useMemo(() => calculate(), []);
+      useMemo(()=> calculate(),[age]);
 	// const total = useMemo(() => calculate(), []);
 	// const total= calculate()
 
@@ -80,7 +80,7 @@ const Component2 = () => {
 	return (
 		<div>
 			<p>This is a Component 2 {name}</p>
-			{/* <p>total amount {total}</p> */}
+			{ /*<p>total amount {total}</p>*/ }
 			<Input id="age" placeholder="Enter Age" value={age} onChange={handleChange} />
 			<Input id="name" placeholder="Enter name" value={name} onChange={handleChange} />
 

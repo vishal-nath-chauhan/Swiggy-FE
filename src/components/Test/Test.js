@@ -27,7 +27,7 @@ const Test=()=>{
     return(
         <>
         <h2>Albums</h2>
-         {userData?(userData.map((item)=><div><Link onClick={handleRedirection} to={item.id}>{item.title}</Link></div>)):(<div>Loader...</div>)}
+         {userData?(userData.map((item)=><div><Link to={`/photos/${item.id}`}>{item.title}</Link></div>)):(<div>Loader...</div>)}
         </>
     )
 }

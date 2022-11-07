@@ -74,8 +74,8 @@ const DishDetails=()=>{
 	 <Box className="parent-flex" >
     <section className="middle-section">
       <div className="middle-section-column1" >
-        <div>
-        <ul class="middle-section-column1-list">
+        <div >
+        <ul class="middle-section-column1-list" style={{position:"sticky",top:"50px"}}>
           <li>Recommended</li>
           <li>Chef's Special</li>
           <li>Signature Jumbo Roles(Wraps)</li>

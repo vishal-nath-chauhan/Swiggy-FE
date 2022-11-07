@@ -1,0 +1,25 @@
+1)Reactjs project starts with index.js file
+2)We can start the project with another file instead of App.js as index.js is the dependency ,not app.js
+3)react is an SPA because evry file is accessed from index.html via a div having id as root,every page is inserted in this root element.There is only 1 html file which is rendered.
+
+4)React breaks the react code in bundle.js in pure javascript so that the browser can understand it.
+
+5)we pass the data from parent to child via props.
+
+6)props always come in the form of objects
+
+7)useState's function eg setName etc. is an asynchronous function
+
+8)React renders only on 2 things,states and props
+
+9)Useeffect function works on componentDidMount,componentDidUpdate and componentWillUnmount
+
+on mount=useEffect(()=>{logic or function call},[])
+
+on update=useEffect(()=>{logic or function call},[dependency array]}
+
+only state or props have to be passed in the dependency array nothing else
+
+on unmount=useEffect(()=>{logic or function call return ()=>{logic for unmounting}},[]}
+10)We should try not to update a state in useEffect or atleast do not put the state variable in dependency array otherwise it will execute infinite times.
+

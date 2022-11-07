@@ -3,7 +3,8 @@ import React from "react";
 
 const isEqual = (prevProps, nextProps) => {
 	// console.log({ prevProps, nextProps });
-	if (prevProps.cart.total.subtotal.final === nextProps.cart.total.subtotal.final) return true;
+	if (prevProps.cart.total.subtotal.final === nextProps.cart.total.subtotal.final) 
+	return true;
 	return false;
 
 	// false => re-rendering
@@ -17,5 +18,5 @@ const ChildComponent = (props) => {
 	return <div>Cart: {value}</div>;
 };
 
-export default React.memo(ChildComponent, isEqual);
+export default React.memo(ChildComponent);
 // export default ChildComponent;
