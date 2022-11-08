@@ -8,6 +8,7 @@ import Test from "./components/Test/Test"
 import {Photos} from "./components/Test/Photos"
 import TestPost from "./components/Test/TestPost"
 import Parent from "./components/Parent";
+import Formdata from "./components/Test/Formdata";
 function App() {
 	return (
 		<Routes>
@@ -18,6 +19,7 @@ function App() {
 			<Route path="/photos" element={<Photos/>} />
 			<Route path="/photos/:albumId" element={<Photos/>} />
 			<Route path="/testpost" element={<TestPost/>} />
+		    <Route path="/formdata" element={<Formdata/>} />
 		</Routes>
 	);
 }
