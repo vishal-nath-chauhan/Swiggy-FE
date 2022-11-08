@@ -11,8 +11,8 @@ export const albumApiHandler=(data)=>{
 }
 
 export const photoApiHandler=(data)=>{
-    const{url}=data
-    return axios.get(BASE_URL+url).then((response)=>{
+    const{url,params}=data
+    return axios.get(BASE_URL+url,{params}).then((response)=>{
         return response
     }).catch((error)=>{console.log(error)})
 }

@@ -8,7 +8,7 @@ const {albumId}=useParams()
 const [userPhotos,setUserPhotos]=useState(null)
 console.log(albumId) 
 let managePhotoApi=async ()=>{
-  let response=await photoApiHandler({url:"photos/"})
+  let response=await photoApiHandler({url:"photos/",params:{albumId}})
   setUserPhotos(response.data)
   console.log(response.data) 
 
@@ -23,8 +23,8 @@ let managePhotoApi=async ()=>{
   return(
     <>
    <h2>User Photos</h2>
-   {userPhotos?(<div style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap'}}>
-    {userPhotos.filter((item)=>item.albumId==albumId).map((item)=><img src={item.thumbnailUrl}/>)}
+   {userPhotos && userPhotos.length?(<div style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap'}}>
+    {userPhotos.map((item)=><img src={item.thumbnailUrl}/>)}
    </div>):(<div>Loader...</div>)}
    </>
   )
