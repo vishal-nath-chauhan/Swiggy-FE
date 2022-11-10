@@ -21,12 +21,30 @@ export const formApiHandler=(data,formdata)=>{
     const {url}=data
     axios.post(BASE_URL+url, formdata)
       .then(function (response) {
-        console.log(response);
+        console.log("form ",response)
+        return response.data;
       })
       .catch(function (error) {
         console.log(error);
       });
 }
+
+// export const updateApiHandler=(data)=>{
+//     const {url}=data
+//     axios({
+//       method: 'patch',
+//       url: BASE_URL+url,
+//       data: {
+//         title:'foo'
+//       }
+//     }).then((response)=> {return response}).catch((error)=>console.log(error))
+//   }
+
+    //axios.patch(BASE_URL+url,{title:"changed title"}).then((response)=>{
+        //console.log(response.data)
+      //return response.data;
+    //}).catch((error)=>{console.log(error)})
+
 
 export const getPostData=(data)=>{
     const{url}=data
