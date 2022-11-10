@@ -2,11 +2,11 @@ import React from "react";
 
 
 const P1 = (props) => {
-	const { user, handleUser } = props;
+	const { user, handleUser,userRef } = props;
 	console.log("P1 rendered");
 
 	return (
-		<div>
+		<div ref={userRef} >
 			P1
 			<input id='name' onChange={handleUser} value={user} placeholder="enter name" />
 		</div>

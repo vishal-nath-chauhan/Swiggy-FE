@@ -1,18 +1,20 @@
 import react, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { getLocalStorageData } from "./Formdata";
 const TestPost = () => {
 	const [post, setPost] = useState(null);
-	const [title, setTitle] = useState("");
-	const [body, setBody] = useState("");
 
 	const [userData, setUserData] = useState({ title: "", body: "" });
 	console.log({ userData });
 	useEffect(() => {
-		axios.get("https://jsonplaceholder.typicode.com/posts/1").then((response) => {
-			console.log(response.data);
-			setPost(response.data);
-		});
+		let localStorageData = getLocalStorageData();
+		if (!localStorageData.length) {
+			axios.get("https://jsonplaceholder.typicode.com/posts").then((response) => {
+				// console.log(response.data);
+				console.log("testtes");
+				setPost(response.data);
+			});
+		}
 	}, []);
 
 	// let handleSubmit = (e) => {
