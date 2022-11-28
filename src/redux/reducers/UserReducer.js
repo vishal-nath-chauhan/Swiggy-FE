@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import apis from '../../api/ApiIndex';
 // import { apis } from '../../api/api';
 
 // redux thunk => behind the scenes
@@ -21,7 +22,14 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 // CREATOR FUNCTION => Action
 export const signUpUserFunc = createAsyncThunk('signUpUser', async (payload, thunkAPI) => {
-	const response = await {}.signUpUser(payload);
+	// const response = await {}.signUpUser(payload);
+
+
+	// call get all posts
+	const response = await apis.getAllPosts(payload)
+
+
+
 	const { ok, problem, data } = response;
 	if (ok) {
 		return data; //action.payload

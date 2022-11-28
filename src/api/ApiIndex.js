@@ -1,8 +1,15 @@
-import { apiClient } from '.';
-import { URIS } from './URL';
+import apiClient from './ApiClient';
+import URIS from './URL';
 
-const getAllData = (payload) => apiClient.get(URIS.GETDATA, payload);
+// this file is managing type of request => POST,PATCH,DELETE,GET
 
-export const apis = {
-	getAllData,
+// const getAllData = (payload) => apiClient.get(URIS.GETDATA, payload);
+
+const getAllPosts = (payload) => apiClient.get(URIS.GET_POSTS, payload);
+
+
+
+const apis = {
+	getAllPosts,
 };
+export default apis;
